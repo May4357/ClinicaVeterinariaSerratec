@@ -1,12 +1,12 @@
 package com.clinicavet.poo;
 
-public abstract class Pessoa implements Login {
+public class Pessoa implements Login {
     
     // •--==> ATRITUBTOS GLOBAIS
         private int idPessoa = 0;
         public static int contadorIdPessoa = 1;
     // •--==> ATRITUBTOS
-        private String nomePessoa;
+        protected  String nomePessoa;
         private String cpf;
         private String dataNascimento;
         private String email;
