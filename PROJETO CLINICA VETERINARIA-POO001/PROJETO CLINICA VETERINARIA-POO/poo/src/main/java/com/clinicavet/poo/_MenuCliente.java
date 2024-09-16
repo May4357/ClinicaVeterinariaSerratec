@@ -11,17 +11,19 @@ public class _MenuCliente {
     // Ambiente virtual de clientes da clinica vet
     // boas vindas FULANO
     // Menu:
+    // agendar consulta
     // histórico de prontuários dos seus pets
 
     do{
-        System.out.println("•---=== BEM VINDO(A) À CLINICA VET VIDA PET ===---•");
-        System.out.println("[1]VER AGENDAMENTO    [2] HISTÓRICO DE PRONTUÁRIOS DO SEU PET");
+        System.out.println(" •---=== CLINICA VET ===---•");
+        System.out.println("[1]-VER AGENDAMENTO    [2]-HISTÓRICO DE PRONTUÁRIOS DO SEU PET");
+        System.out.println("");
         opcaoCliente = sc.nextInt();
 
         switch (opcaoCliente) {
             case 1:
-                //agendamento--> nomePessoa, nomePet
-
+               System.out.println("A sua consulta foi agendada para o dia :");
+                
                 break;
             case 2:
                 //historico
