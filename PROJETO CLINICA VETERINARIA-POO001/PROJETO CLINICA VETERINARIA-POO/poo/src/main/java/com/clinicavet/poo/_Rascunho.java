@@ -1,6 +1,6 @@
 package com.clinicavet.poo;
 
-public class _Rascunho {//teste J
+public class _Rascunho {
     /*
      *      1 PooApplication - Login 
      *      • O usuário deve ser capaz de logar no sistema

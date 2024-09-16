@@ -1,20 +1,22 @@
 package com.clinicavet.poo;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Consulta {
     // •--==> ATRITUBTOS
 
     private Animal animal;
     private MedicoVeterinario veterinario;
-    private LocalDateTime dataConsulta;
-    private EnumStatusConsulta statusConsulta; // esse é um enum
+    private LocalDate dataConsulta;
+    private EnumStatusConsulta statusConsulta;
+    private EnumProcedimento procedimento;
 
     // •--==> CONSTRUTOR
-    public Consulta(Animal animal, MedicoVeterinario veterinario, LocalDateTime dataConsulta) {
+    public Consulta(Animal animal, MedicoVeterinario veterinario) {
         this.animal = animal;
         this.veterinario = veterinario;
-        this.dataConsulta = dataConsulta;
+        this.dataConsulta = LocalDate.now();
+            
 
     // •--==> METODOS
 
@@ -37,11 +39,11 @@ public class Consulta {
         this.veterinario = veterinario;
     }
 
-    public LocalDateTime getDataConsulta() {
+    public LocalDate getDataConsulta() {
         return dataConsulta;
     }
 
-    public void setDataConsulta(LocalDateTime dataConsulta) {
+    public void setDataConsulta(LocalDate dataConsulta) {
         this.dataConsulta = dataConsulta;
     }
 

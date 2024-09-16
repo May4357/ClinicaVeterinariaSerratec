@@ -1,5 +1,5 @@
 package com.clinicavet.poo;
 
-public interface Login {
+public interface Login { //interface
     public void login();
 }
