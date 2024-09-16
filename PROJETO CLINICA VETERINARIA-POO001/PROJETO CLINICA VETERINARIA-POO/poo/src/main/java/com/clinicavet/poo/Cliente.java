@@ -22,7 +22,9 @@ public Cliente(String nomeCliente) {
 }
 
 // •--==> METODOS
-public void login(){}
+public void login(){
+    _MenuCliente.menuCliente();
+}
 // •--==> GETTERS SETTERS
 
 //login e senha 

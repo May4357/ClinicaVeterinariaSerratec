@@ -22,7 +22,9 @@ public class MedicoVeterinario extends Pessoa implements Login {
     }
 
     // •--==> METODOS
-    public void login(){}
+    public void login(){
+        _MenuVet.menuVet();
+    }
     
     public static void cadastrarVet(){
         Scanner sc = new Scanner(System.in);
