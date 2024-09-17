@@ -15,13 +15,17 @@ public class Consulta {
     private EnumStatusConsulta statusConsulta;
     private EnumProcedimento procedimento;
 
+
+
     // •--==> CONSTRUTOR
     public Consulta(Animal animal, MedicoVeterinario medicoVetResponsavel, Cliente donoPet, LocalDate dataConsulta,
-            EnumProcedimento procedimento) {
+            EnumProcedimento procedimento, EnumStatusConsulta statusConsulta) {
         this.animal = animal;
         this.medicoVetResponsavel = medicoVetResponsavel;
         this.donoPet = donoPet;
         this.dataConsulta = dataConsulta;
+        this.procedimento = procedimento;
+        this.statusConsulta = statusConsulta;
     }
 
     public Consulta() {
@@ -80,33 +84,39 @@ public class Consulta {
                                                 System.out.println("Formato de data inválido. Use yyyy-MM-dd.");
                                             }
 
+                                            
+
                                             EnumStatusConsulta statusConsultaA = (EnumStatusConsulta.AGENDADA); // ! STATUS NULL NÃO
-                                            statusConsultaA.getEnumStatusConsulta();
+                                            System.out.println(statusConsultaA.getDescricao());
+                                            
 
 
                                             EnumProcedimento procedimentoConsulta;
                                             System.out.println(
                                                     "Qual o tipo de procedimento será realizado na consulta: ");
                                             System.out.println("[1] CONSULTA\n[2] VACINA\n[3] PROCEDIMENTOCIRURGICO;");
-                                            int tipoProcedimento;
+                                            int tipoProcedimento;                                            
+
                                             procedimentoConsulta = EnumProcedimento.CONSULTA;
+
+
                                             tipoProcedimento = sc.nextInt();
                                             switch (tipoProcedimento) {
                                                 case 1:
                                                     procedimentoConsulta = EnumProcedimento.CONSULTA;
                                                     break;
-                                                case 2:
+                                                    case 2:
                                                     procedimentoConsulta = EnumProcedimento.VACINA;
                                                     break;
-                                                case 3:
+                                                    case 3:
                                                     procedimentoConsulta = EnumProcedimento.PROCEDIMENTOCIRURGICO;
                                                     break;
-                                                default:
+                                                    default:
                                                     break;
-                                            }
-                                            EnumProcedimento Procedimento = procedimentoConsulta;
-                                            Consulta novaConsulta = new Consulta(pet, vet, cliente, dataConsulta,
-                                                    procedimentoConsulta);
+                                                }
+                                                EnumProcedimento Procedimento = procedimentoConsulta;
+                                                
+                                                Consulta novaConsulta = new Consulta(pet, vet, cliente, dataConsulta, procedimentoConsulta, statusConsultaA);                                                
                                             Animal.historicoDeProntuarios.add(novaConsulta);
                                             System.out.println(
                                                     "Consulta cadastrada com sucesso: \n" +
@@ -115,8 +125,8 @@ public class Consulta {
                                                             "\nPet: " + novaConsulta.animal.getNomePet() +
                                                             "\nVeterinário(a) Responsável: "
                                                             + novaConsulta.getVeterinario().getNomePessoa()
-                                            // +"Procedimento: "+ novaConsulta.procedimento.getEscolhaProcedimentoEnum()
-                                            // +"Status: "+novaConsulta.statusConsulta.getStatusConsulta()
+                                            +"Procedimento: "+ novaConsulta.procedimento.getEscolhaProcedimentoEnum()
+                                            +"Status: "+novaConsulta.statusConsulta.getDescricao()
                                             );
                                         } else
                                             System.out.println(
@@ -143,7 +153,7 @@ public class Consulta {
         } else {
             // Verifica se a consulta está na lista de consultas do médico
             if (Animal.getHistoricoDeProntuarios().contains(consulta)) {
-                return EnumStatusConsulta.FINALIZADO;
+                return EnumStatusConsulta.FINALIZADA;
             } else {
                 return EnumStatusConsulta.CANCELADA;
             }
@@ -163,6 +173,7 @@ public class Consulta {
             System.out.println(
                     "Tutor(a): " + Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa());
             System.out.println("Status Consulta: " + Animal.historicoDeProntuarios.get(i).getStatusConsulta());
+            System.out.println("Procedimento Realizado: " + Animal.historicoDeProntuarios.get(i).getProcedimento());
             System.out.println("Data da Consulta: " + Animal.historicoDeProntuarios.get(i).getDataConsulta());
             System.out.println("Veterinario(a) responsável: "
                     + Animal.historicoDeProntuarios.get(i).getVeterinario().getNomePessoa());
@@ -170,7 +181,6 @@ public class Consulta {
 
         }
     }
-
 
     /*
      * for(Consulta consulta : Animal.historicoDeProntuarios)
@@ -273,5 +283,13 @@ public class Consulta {
 
     public void setStatusConsulta(EnumStatusConsulta statusConsulta) {
         this.statusConsulta = statusConsulta;
+    }
+
+    public EnumProcedimento getProcedimento() {
+        return procedimento;
+    }
+
+    public void setProcedimento(EnumProcedimento procedimento) {
+        this.procedimento = procedimento;
     }
 }
