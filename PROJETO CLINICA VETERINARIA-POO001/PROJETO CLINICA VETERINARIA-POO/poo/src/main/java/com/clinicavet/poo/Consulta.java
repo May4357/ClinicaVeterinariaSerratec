@@ -1,7 +1,6 @@
 package com.clinicavet.poo;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.time.LocalDate;
 import java.util.Scanner;
 

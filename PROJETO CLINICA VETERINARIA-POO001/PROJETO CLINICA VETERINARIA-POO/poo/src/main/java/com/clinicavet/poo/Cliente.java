@@ -1,75 +1,65 @@
 package com.clinicavet.poo;
 
-import java.util.ArrayList;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Cliente extends Pessoa implements Login {
 
-    // •--==> LISTA DE CLIENTES
-    public static ArrayList<Cliente> listaDeClientes = new ArrayList<Cliente>();
-    public static ArrayList<Animal> listaDePets = new ArrayList<Animal>();
+    // •--==> ATRITUTOS     
+    public static ArrayList<Cliente> listaDeClientes = new ArrayList<>();
+    public static ArrayList<Animal> listaDePets = new ArrayList<>();
+    private ArrayList<Consulta> listaDeConsultas = new ArrayList<>();
 
-    // •--==> ATRITUBTOS
-    // private int idCliente;
+    // Atributos do cliente
     private LocalDate dataCadastro;
 
     // •--==> CONSTRUTOR
     public Cliente(int idPessoa, String nomePessoa, String cpf, String dataNascimento, String email,
             String usuario, String senha, String telefone, String dataCadastro) {
-                this.setNomePessoa(nomePessoa);
-                this.setCpf(cpf);
-                this.setDataNascimento(dataNascimento);
-                this.setEmail(email);
-                this.setUsuario(usuario);
-                
+        this.setNomePessoa(nomePessoa);
+        this.setCpf(cpf);
+        this.setDataNascimento(dataNascimento);
+        this.setEmail(email);
+        this.setUsuario(usuario);
+        // outros atributos a serem inicializados...
     }
 
     public Cliente(String nomeCliente) {
         this.setNomePessoa(nomeCliente);
-
     }
 
-    
+    //•--==> MÉTODOS 
+    public void consultarHistoricoPet(Animal animal) {                  //  CONSULTA HISTÓRICO DO PET 
+        System.out.println("Consultando histórico de consultas para o pet: " + animal.getNomePet());
 
-    // •--==> METODOS
-    public static void consultaProntuarios() { // vai consultar os prontuarios daquele determinado animal
+        boolean encontrouConsulta = false;
 
-        for (Animal pets : Cliente.listaDePets) {// polimorfismo, busca pet na lista de pets do array
-
-            if (!Cliente.listaDePets.isEmpty()) { // rodar a lista de pets
-
-                System.out.println("Lista de Pets:");
-
-                for (int i = 0; i < Cliente.listaDePets.size(); i++) {
-                    System.out.println((i + 1) + " - NOME: "
-                            + Cliente.listaDePets.get(i).getNomePet()
-                            + Cliente.listaDePets.get(i).getRaca()
-                            + Cliente.listaDePets.get(i).getCor());
-
-                }
-
+        for (Consulta consulta : listaDeConsultas) {
+            if (consulta.getAnimal().equals(animal)) {
+                System.out.println("Consulta em: " + consulta.getDataConsulta());
+                System.out.println("Veterinário: " + consulta.getVeterinario());
+               // System.out.println("Status da consulta " + consulta.(EnumStatusConsulta));
+                System.out.println("----------------------------");
+                encontrouConsulta = true;
             }
         }
 
+        if (!encontrouConsulta) {
+            System.out.println("Nenhuma consulta encontrada para o pet: " + animal.getNomePet());
+        }
     }
 
-
-    public void cadastrarConsulta(Animal pet, MedicoVeterinario veterinario, LocalDate dataConsulta, EnumProcedimento descricao) {
-        Consulta novaConsulta = new Consulta(pet, veterinario, this, dataConsulta, descricao);
-        listaDeConsultas.add(novaConsulta);
-        System.out.println("Consulta cadastrada com sucesso: " + novaConsulta.toString());
-    }
-    }
-
+    // Método para adicionar um pet
     public static void adicionarPet(Animal nomeAnimal) {
-        listaDePets.add(nomeAnimal); // Adicionar pet no array
+        listaDePets.add(nomeAnimal);
     }
 
+    // Método de login (implementação do interface Login)
     public void login() {
-        _MenuCliente.menuCliente();
+        _MenuCliente.menuCliente(); // Exemplo de chamada de menu
     }
 
-    // •--==> GETTERS SETTERS
+    // Getters e Setters
     public static ArrayList<Cliente> getListaDeClientes() {
         return listaDeClientes;
     }
@@ -86,17 +76,11 @@ public class Cliente extends Pessoa implements Login {
         this.dataCadastro = dataCadastro;
     }
 
-    public String getNomeClienteBusca(String nomeBusca) {
-
-        if (this.nomePessoa == nomeBusca) {
-            return nomeBusca;
-        } else {
-            nomeBusca = "Nome não consta na lista";
-            return nomeBusca;
-            
-        }
+    public ArrayList<Consulta> getListaDeConsultas() {
+        return listaDeConsultas;
     }
-    // login e senha
-    // deve consultar os prontuários (historicos de atendimento) de TODOS os SEUS
-    // pets.
 
+    public void setListaDeConsultas(ArrayList<Consulta> listaDeConsultas) {
+        this.listaDeConsultas = listaDeConsultas;
+    }
+}
