@@ -69,8 +69,8 @@ public class BancoDeDados {
         
         //DATAS
         LocalDate data1 = LocalDate.of(2024, 7, 5);
-        LocalDate data2 = LocalDate.of(2024, 8, 5);
-        LocalDate data3 = LocalDate.of(2024, 9, 5);
+        LocalDate data2 = LocalDate.of(2023, 8, 5);
+        LocalDate data3 = LocalDate.of(2022, 9, 5);
         //! datas não estão registrando 
 
         //PROCEDIMENTOS
