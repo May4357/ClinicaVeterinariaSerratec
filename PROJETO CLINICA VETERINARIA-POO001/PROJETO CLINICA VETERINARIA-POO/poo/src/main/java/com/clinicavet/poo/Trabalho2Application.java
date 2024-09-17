@@ -3,17 +3,30 @@ package com.clinicavet.poo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Scanner;
+import java.time.LocalDate;
 
 @SpringBootApplication
-public class _PooApplication {
+public class Trabalho2Application {
 	// •--==> ATRITUBTOS GLOBAIS
 	public static int contadorTentativas = 3;
 	public static Pessoa usuarioLogado;
 
 	public static void main(String[] args) {
-		SpringApplication.run(_PooApplication.class, args);
-		BancoDeDados.criadorPessoas();
-		//TRY CATCHES
+		SpringApplication.run(Trabalho2Application.class, args);
+
+		System.out.println("\n===================================================");
+		System.out.println("||   __  __                           __   ___   ||");
+		System.out.println("||  |  \\|   |\\  /|    \\      /||\\   ||  \\ |   |  ||");
+		System.out.println("||  |__/|__ | \\/ | ___ \\    / || \\  ||   \\|   |  ||");
+		System.out.println("||  |  \\|   |    |      \\  /  ||  \\ ||   /|   |  ||");
+		System.out.println("||  |__/|__ |    |       \\/   ||   \\||__/ |___|  ||");
+		System.out.println("||                                               ||");
+		System.out.println("===================================================");
+
+		
+		MedicoVeterinario med1 = new MedicoVeterinario("Johnny");
+			med1.setUsuario("a");
+			med1.setSenha("a");
 
 		// •--==> ATRITUBTOS
 		Scanner usuarioLeia = new Scanner(System.in);
@@ -21,10 +34,9 @@ public class _PooApplication {
 
 		// •--==> MENU INICIAL DE LOGIN
 		while (contadorTentativas > 0) {
-			System.out.println("\n============================");
+			System.out.println("============================");
 			System.out.println("||       CLINICA VET      ||");
-			System.out.println("============================");			
-			System.out.println("BOAS VINDAS A CLINICA VET");
+			System.out.println("============================\n");			
 			System.out.println("Faça o seu Login para acessar os serviços da clínica:");
 
 			System.out.println("Usuário: ");
@@ -50,21 +62,22 @@ public class _PooApplication {
 	public static boolean autorizaCredenciais(String usuarioDigitado, String senhaDigitada) {
 		for (MedicoVeterinario vetLogin : MedicoVeterinario.listaDeVeterinarios) {
 			// tenho que pegar o login e senha do p e comparar com os dados digitados
-			if (vetLogin.getSenha().equalsIgnoreCase(senhaDigitada) && vetLogin.getUsuario().equalsIgnoreCase(usuarioDigitado)) {
+			if (vetLogin.getSenha().equals(senhaDigitada) && vetLogin.getUsuario().equals(usuarioDigitado)) {
 				System.out.println(("Login realizado com sucesso"));
+				System.out.println(("joga para o menu profs"));
 				usuarioLogado = vetLogin;
 				return true;
 			}
-		for (Cliente clienteLogin : Cliente.listaDeClientes) {
-			// tenho que pegar o login e senha do a e comparar com os dados digitados
-			if (clienteLogin.getSenha().equalsIgnoreCase(senhaDigitada) && clienteLogin.getUsuario().equalsIgnoreCase(usuarioDigitado)) {
-				System.out.println(("Login realizado com sucesso"));
-				usuarioLogado = clienteLogin;
-				return true;
+			for (Cliente clienteLogin : Cliente.listaDeClientes) {
+				// tenho que pegar o login e senha do a e comparar com os dados digitados
+				if (clienteLogin.getSenha().equals(senhaDigitada) && clienteLogin.getUsuario().equals(usuarioDigitado)) {
+					System.out.println(("Login realizado com sucesso"));
+					System.out.println(("joga para o menu profs"));
+					usuarioLogado = clienteLogin;
+					return true;
+				}
 			}
 		}
-	}
 	return false;
-
 	}
 }

@@ -114,5 +114,4 @@ private Cliente buscarCliente(String nome) {
     public void setStatusConsulta(EnumStatusConsulta statusConsulta) {
         this.statusConsulta = statusConsulta;
     }
-
 }

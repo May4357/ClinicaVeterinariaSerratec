@@ -44,7 +44,7 @@ public class MedicoVeterinario extends Pessoa implements Login {
         System.out.print("DIGITE O TELEFONE: ");
         String telefone = sc.nextLine();
 
-        System.out.print("DIGITE O CRMV ");
+        System.out.print("DIGITE O CRMV: ");
         int crmv = sc.nextInt();
 
         System.out.print("DIGITE A ESPECIALIDADE: ");
@@ -133,7 +133,6 @@ public class MedicoVeterinario extends Pessoa implements Login {
     public void setEspecialidade(String especialidade) {
         this.especialidade = especialidade;
     }
-    
 }
 // acrescentar login e senha
 // deve ser capaz de registrar um atendimento de um pet

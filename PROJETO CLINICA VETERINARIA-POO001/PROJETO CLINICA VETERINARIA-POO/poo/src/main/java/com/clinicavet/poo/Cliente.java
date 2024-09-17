@@ -88,4 +88,6 @@ public class Cliente extends Pessoa implements Login {
     // deve consultar os prontuários (historicos de atendimento) de TODOS os SEUS
     // pets.
 
+        }
+    }
 }
