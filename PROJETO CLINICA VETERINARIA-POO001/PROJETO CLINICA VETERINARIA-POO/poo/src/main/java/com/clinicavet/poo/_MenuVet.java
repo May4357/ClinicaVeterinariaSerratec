@@ -31,7 +31,7 @@ public class _MenuVet {
                 Consulta.agendarConsulta(); // chama o metodo em Consulta para agendar a consulta
                 break;
             case 2:
-
+                Consulta.consultaProntuariosDeTodosPets(); // exibe a lista de pets por dono e seus prontuarios
                     break;
                 case 3:
 
