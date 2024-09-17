@@ -1,23 +1,19 @@
 package com.clinicavet.poo;
 
 public enum EnumStatusConsulta {
-    AGENDADA ("Agendada"),
-    FINALIZADO ("Finalizada"),
-    CANCELADA ("Cancelada");
+    AGENDADA("Agendada"),
+    FINALIZADA("Finalizada"),
+    CANCELADA("Cancelada");
 
+    private final String descricao;
 
+    EnumStatusConsulta(String descricao) {
+        this.descricao = descricao;
+    }
 
-
-private final String descricao;
-
-EnumStatusConsulta (String descricao){
-    this.descricao=descricao;
+    public String getDescricao() {
+        return descricao;
+    }
 }
-
-public String get() {
-    return descricao;
-}
-}
-
 
 
