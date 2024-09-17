@@ -3,6 +3,8 @@ package com.clinicavet.poo;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class Consulta {
     // ArrayList<Consulta>();
@@ -19,7 +21,7 @@ public class Consulta {
         this.animal = animal;
         this.medicoVetResponsavel = medicoVetResponsavel;
         this.donoPet = donoPet;
-        this.dataConsulta = LocalDate.now();
+        this.dataConsulta = dataConsulta;
     }
 
     public Consulta() {
@@ -62,10 +64,25 @@ public class Consulta {
                                             vet = v;
                                             System.out.println(v.getNomePessoa());
 
-                                            LocalDate dataConsulta; //! DATA NÃO ESTÁ REGISTRANDO = NULL
+                                            LocalDate dataConsulta; // ! DATA NÃO ESTÁ REGISTRANDO = NULL
+
                                             dataConsulta = LocalDate.now();
+
+                                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+                                            System.out.print("Digite uma data no formato yyyy-MM-dd: ");
+                                            String input = sc.nextLine();
+
+                                            try {
+                                                dataConsulta = LocalDate.parse(input, formatter);
+                                                System.out.println("Data inserida: " + dataConsulta);
+                                            } catch (DateTimeParseException e) {
+                                                System.out.println("Formato de data inválido. Use yyyy-MM-dd.");
+                                            }
+
                                             EnumStatusConsulta statusConsultaA;
-                                            statusConsultaA = (EnumStatusConsulta.AGENDADA); //! STATUS NULL NÃO REGISTRA
+                                            statusConsultaA = (EnumStatusConsulta.AGENDADA); // ! STATUS NULL NÃO
+                                                                                             // REGISTRA
 
                                             EnumProcedimento procedimentoConsulta;
                                             System.out.println(
@@ -142,15 +159,19 @@ public class Consulta {
         for (int i = 0; i < Animal.historicoDeProntuarios.size(); i++) {
 
             System.out.println("--------------------------------");
-            System.out.println("Pet: "+Animal.historicoDeProntuarios.get(i).getAnimal().getNomePet());
-            System.out.println("Tutor(a): "+Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa());
-            System.out.println("Status Consulta: "+Animal.historicoDeProntuarios.get(i).getStatusConsulta());
-            System.out.println("Data da Consulta: "+Animal.historicoDeProntuarios.get(i).getDataConsulta());
-            System.out.println("Veterinario(a) responsável: "+Animal.historicoDeProntuarios.get(i).getVeterinario().getNomePessoa());
+            System.out.println("Pet: " + Animal.historicoDeProntuarios.get(i).getAnimal().getNomePet());
+            System.out.println(
+                    "Tutor(a): " + Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa());
+            System.out.println("Status Consulta: " + Animal.historicoDeProntuarios.get(i).getStatusConsulta());
+            System.out.println("Data da Consulta: " + Animal.historicoDeProntuarios.get(i).getDataConsulta());
+            System.out.println("Veterinario(a) responsável: "
+                    + Animal.historicoDeProntuarios.get(i).getVeterinario().getNomePessoa());
             System.out.println("--------------------------------");
 
         }
     }
+
+
     /*
      * for(Consulta consulta : Animal.historicoDeProntuarios)
      * for (Cliente cliente : Cliente.listaDeClientes){
