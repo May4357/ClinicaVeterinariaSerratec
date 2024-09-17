@@ -26,7 +26,7 @@ public class _MenuCliente {
 
         switch (opcaoCliente) {
             case 1:
-               System.out.println("A sua consulta foi agendada para o dia :");
+                System.out.println("A sua consulta foi agendada para o dia :");
                 
                 break;
             case 2:

@@ -13,6 +13,7 @@ public class _PooApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(_PooApplication.class, args);
 		BancoDeDados.criadorPessoas();
+		//TRY CATCHES
 
 		// •--==> ATRITUBTOS
 		Scanner usuarioLeia = new Scanner(System.in);

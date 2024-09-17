@@ -17,10 +17,13 @@ public class BancoDeDados {
         animal1.setNomePet("Rex");
         animal1.setDonoPet(cliente1);
         animal1.setGeneroPet(EnumGenero.FEMEA);
-        Animal.listaDeClientes.add(animal1);
+        Cliente.listaDePets.add(animal1);
 
-        Consulta consulta1 = new Consulta(animal1, medico1);
+        Consulta consulta1 = new Consulta(animal1, medico1, cliente1);
         System.out.println(consulta1.getDataConsulta());
+
+        System.out.println(Cliente.getListaDeClientes().contains(Cliente.class.equals("Johnny")));
+        System.out.println(Cliente.getNomePessoaBusca("Johnny"));
 
     }
 }

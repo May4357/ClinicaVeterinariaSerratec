@@ -21,11 +21,16 @@ public class Consulta {
         this.animal = animal;
         this.medicoVetResponsavel = veterinario;
         this.dataConsulta = LocalDate.now();
-    
+    }
 
 
     // •--==> METODOS
-    public agendarConsulta(){
+    public static void agendarConsulta(){
+        Cliente.listaDeClientes.contains("Johnny");
+
+
+
+        /*
         //medico tal
         //cliente tal // pet vem do cliente
         for (Cliente clienteLogin : Cliente.listaDeClientes) {
@@ -34,7 +39,6 @@ public class Consulta {
             this.pet
             this.medico
         }
-
     }
 
     /*

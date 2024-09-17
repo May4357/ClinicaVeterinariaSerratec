@@ -29,7 +29,7 @@ public class _MenuVet {
 
         switch (opcaoVet) {
             case 1:
-                
+                Consulta.agendarConsulta(); // chama o metodo em Consulta para agendar a consulta
                 break;
             case 2:
 

@@ -14,10 +14,14 @@ public class Cliente extends Pessoa implements Login {
     private LocalDate dataCadastro;
 
     // •--==> CONSTRUTOR
-public Cliente(int idPessoa, String nomePessoa, String cpf, String dataNascimento, String email,
-    String usuario, String senha, String telefone){
-        super(idPessoa, nomePessoa, cpf, dataNascimento, email, usuario, senha, telefone);
-    this.add()
+    public Cliente(int idPessoa, String nomePessoa, String cpf, String dataNascimento, String email,
+            String usuario, String senha, String telefone, String dataCadastro) {
+                this.setNomePessoa(nomePessoa);
+                this.setCpf(cpf);
+                this.setDataNascimento(dataNascimento);
+                this.setEmail(email);
+                this.setUsuario(usuario);
+                
     }
 
     public Cliente(String nomeCliente) {
@@ -26,25 +30,25 @@ public Cliente(int idPessoa, String nomePessoa, String cpf, String dataNasciment
     }
 
     // •--==> METODOS
-public static void consultaProntuarios() { // vai consultar os prontuarios daquele determinado animal
+    public static void consultaProntuarios() { // vai consultar os prontuarios daquele determinado animal
 
-    for (Animal pets : Cliente.listaDePets) {// polimorfismo, busca pet na lista de pets do array
+        for (Animal pets : Cliente.listaDePets) {// polimorfismo, busca pet na lista de pets do array
 
-        if (!Cliente.listaDePets.isEmpty()) { // rodar a lista de pets
+            if (!Cliente.listaDePets.isEmpty()) { // rodar a lista de pets
 
-            System.out.println("Lista de Pets:");
+                System.out.println("Lista de Pets:");
 
-            for (int i = 0; i < Cliente.listaDePets.size(); i++) {
-                System.out.println((i + 1) + " - NOME: "
-                        + Cliente.listaDePets.get(i).getNomePet()
-                        + Cliente.listaDePets.get(i).getRaca()
-                        + Cliente.listaDePets.get(i).getCor()
-                        + Cliente.listaDePets.get(i).getHistoricoDeProntuarios().get(i).
-                        + Cliente.listaDePets.get(i).getDataUltimaConsulta());
+                for (int i = 0; i < Cliente.listaDePets.size(); i++) {
+                    System.out.println((i + 1) + " - NOME: "
+                            + Cliente.listaDePets.get(i).getNomePet()
+                            + Cliente.listaDePets.get(i).getRaca()
+                            + Cliente.listaDePets.get(i).getCor());
 
+                }
+
+            }
+        }
     }
-    
-}
 
     public static void adicionarPet(Animal nomeAnimal) {
         listaDePets.add(nomeAnimal); // Adicionar pet no array
@@ -71,6 +75,15 @@ public static void consultaProntuarios() { // vai consultar os prontuarios daque
         this.dataCadastro = dataCadastro;
     }
 
+    public String getNomeClienteBusca(String nomeBusca) {
+
+        if (this.nomePessoa == nomeBusca) {
+            return nomeBusca;
+        } else {
+            nomeBusca = "Nome não consta na lista";
+            return nomeBusca;
+        }
+    }
     // login e senha
     // deve consultar os prontuários (historicos de atendimento) de TODOS os SEUS
     // pets.
