@@ -80,9 +80,9 @@ public class Consulta {
                                                 System.out.println("Formato de data inválido. Use yyyy-MM-dd.");
                                             }
 
-                                            EnumStatusConsulta statusConsultaA;
-                                            statusConsultaA = (EnumStatusConsulta.AGENDADA); // ! STATUS NULL NÃO
-                                                                                             // REGISTRA
+                                            EnumStatusConsulta statusConsultaA = (EnumStatusConsulta.AGENDADA); // ! STATUS NULL NÃO
+                                            statusConsultaA.getEnumStatusConsulta();
+
 
                                             EnumProcedimento procedimentoConsulta;
                                             System.out.println(
@@ -143,7 +143,7 @@ public class Consulta {
         } else {
             // Verifica se a consulta está na lista de consultas do médico
             if (Animal.getHistoricoDeProntuarios().contains(consulta)) {
-                return EnumStatusConsulta.FINALIZADA;
+                return EnumStatusConsulta.FINALIZADO;
             } else {
                 return EnumStatusConsulta.CANCELADA;
             }
