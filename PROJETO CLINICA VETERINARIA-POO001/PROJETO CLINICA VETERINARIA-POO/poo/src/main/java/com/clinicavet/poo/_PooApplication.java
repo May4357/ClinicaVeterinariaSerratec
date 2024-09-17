@@ -1,8 +1,9 @@
 package com.clinicavet.poo;
 
+import java.util.Scanner;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.util.Scanner;
 
 @SpringBootApplication
 public class _PooApplication {
@@ -20,8 +21,8 @@ public class _PooApplication {
 
 		// •--==> MENU INICIAL DE LOGIN
 		while (contadorTentativas > 0) {
-			System.out.println("•---===CLINICA VET===---•");
-			System.out.println("BOAS VINDAS A CLINICA VET");
+			System.out.println("=================== | CLINICA VET |=======================");
+			System.out.println("------------------- BOAS VINDAS A CLINICA VET !------------------");
 			System.out.println("Faça o seu Login para acessar os serviços da clínica:");
 
 			System.out.println("Usuário: ");
