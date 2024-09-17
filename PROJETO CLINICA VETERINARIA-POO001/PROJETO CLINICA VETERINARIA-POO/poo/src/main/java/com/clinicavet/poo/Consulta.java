@@ -6,7 +6,8 @@ public class Consulta {
     // •--==> ATRITUBTOS
 
     private Animal animal;
-    private MedicoVeterinario veterinario;
+    private Cliente donoPet;
+    private MedicoVeterinario medicoVetResponsavel;
     private LocalDate dataConsulta;
     private EnumStatusConsulta statusConsulta;
     private EnumProcedimento procedimento;
@@ -14,7 +15,7 @@ public class Consulta {
     // •--==> CONSTRUTOR
     public Consulta(Animal animal, MedicoVeterinario veterinario) {
         this.animal = animal;
-        this.veterinario = veterinario;
+        this.medicoVetResponsavel = veterinario;
         this.dataConsulta = LocalDate.now();
             
 
@@ -32,11 +33,11 @@ public class Consulta {
     }
 
     public MedicoVeterinario getVeterinario() {
-        return veterinario;
+        return medicoVetResponsavel;
     }
 
     public void setVeterinario(MedicoVeterinario veterinario) {
-        this.veterinario = veterinario;
+        this.medicoVetResponsavel = veterinario;
     }
 
     public LocalDate getDataConsulta() {
