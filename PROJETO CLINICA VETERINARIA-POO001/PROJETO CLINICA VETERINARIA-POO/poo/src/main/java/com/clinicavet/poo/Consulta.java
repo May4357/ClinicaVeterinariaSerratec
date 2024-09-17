@@ -1,6 +1,7 @@
 package com.clinicavet.poo;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -14,70 +15,98 @@ public class Consulta {
     private LocalDate dataConsulta;
     private EnumStatusConsulta statusConsulta;
     private EnumProcedimento procedimento;
-    
+
     // •--==> CONSTRUTOR
-    public Consulta(Animal animal, MedicoVeterinario medicoVetResponsavel, Cliente donoPet, LocalDate dataConsulta, EnumProcedimento procedimento) {
+    public Consulta(Animal animal, MedicoVeterinario medicoVetResponsavel, Cliente donoPet, LocalDate dataConsulta,
+            EnumProcedimento procedimento) {
         this.animal = animal;
         this.medicoVetResponsavel = medicoVetResponsavel;
         this.donoPet = donoPet;
         this.dataConsulta = LocalDate.now();
     }
-    public Consulta(){
+
+    public Consulta() {
 
     }
-    
+
     // •--==> METODOS
     public static void agendarConsulta() {
-        //
-        Consulta novaConsulta = new Consulta(); //cria uma consulta com esses objetos acima
         System.out.println("Digite o nome do(a) Cliente");
         Scanner sc = new Scanner(System.in);
         String nomePessoa = sc.nextLine(); // guarda o nome em string do cliente
         Cliente cliente;
-        
+
         if (!Cliente.listaDeClientes.isEmpty()) { // busca todos clientes
             System.out.println("Cliente na lista: ");
             for (Cliente c : Cliente.listaDeClientes) {
                 if (c.getNomePessoa().equals(nomePessoa)) { // se o nome digitado estiver na lista exibe e salva
                     cliente = c;
                     System.out.println(cliente.nomePessoa);
-                } else
-                System.out.println("Pessoa não cadastrada no sistema");
-            }
-        }
-        
-        System.out.println("Digite o nome do(a) Pet");
-        String nomePet = sc.nextLine();
-        Animal pet;
-        
-        if (!Cliente.listaDePets.isEmpty()) {
-            System.out.println("Pet na lista: ");
-            for (Animal p : Cliente.listaDePets) {
-                if (p.getNomePet().equals(nomePet) && p.getDonoPet() == cliente) { // se o pet não for dessa pessoa
-                    // retorna falso
-                    pet = p;
-                    System.out.println(pet.getNomePet());
-                } else
-                System.out.println("Pet não cadastrado no sistema ou esta pessoa não é sua dona");
-            }
-        }
-        
-        System.out.println("Digite o nome do(a) Veterinário(a) responsável pela consulta:");
-        String nomeVet = sc.nextLine();
-        MedicoVeterinario vet;
+                    System.out.println("Digite o nome do(a) Pet");
+                    String nomePet = sc.nextLine();
+                    Animal pet;
 
-        if (!MedicoVeterinario.listaDeVeterinarios.isEmpty()) {
-            System.out.println("Veterinário(a) na lista: ");
-            for (MedicoVeterinario v : MedicoVeterinario.listaDeVeterinarios) {
-                if (v.getNomePessoa().equals(nomeVet)) {
-                    vet = v;
-                    System.out.println(v.getNomePessoa());
-                } else
-                    System.out.println("Pet não cadastrado no sistema ou esta pessoa não é sua dona");
+                    if (!Cliente.listaDePets.isEmpty()) {
+                        System.out.println("Pet na lista: ");
+                        for (Animal p : Cliente.listaDePets) {
+                            if (p.getNomePet().equals(nomePet) && p.getDonoPet() == cliente) { // se o pet não for dessa
+                                                                                               // pessoa
+                                // retorna falso
+                                pet = p;
+                                System.out.println(pet.getNomePet());
+                                System.out.println("Digite o nome do(a) Veterinário(a) responsável pela consulta:");
+                                String nomeVet = sc.nextLine();
+                                MedicoVeterinario vet;
+
+                                if (!MedicoVeterinario.listaDeVeterinarios.isEmpty()) {
+                                    System.out.println("Veterinário(a) na lista: ");
+                                    for (MedicoVeterinario v : MedicoVeterinario.listaDeVeterinarios) {
+                                        if (v.getNomePessoa().equals(nomeVet)) {
+                                            vet = v;
+                                            System.out.println(v.getNomePessoa());
+
+                                            LocalDate dataConsulta; dataConsulta = LocalDate.now();
+                                            EnumStatusConsulta statusConsultaA; statusConsultaA = (EnumStatusConsulta.AGENDADA);
+                                            
+                                            EnumProcedimento procedimentoConsulta;
+                                            System.out.println("Qual o tipo de procedimento será realizado na consulta: ");
+                                            System.out.println("[1] CONSULTA\n[2] VACINA\n[3] PROCEDIMENTOCIRURGICO;");
+                                            int tipoProcedimento;
+                                            procedimentoConsulta = EnumProcedimento.CONSULTA;
+                                            tipoProcedimento = sc.nextInt();
+                                            switch (tipoProcedimento) {
+                                                case 1:
+                                                procedimentoConsulta = EnumProcedimento.CONSULTA;
+                                                    break;
+                                                case 2:
+                                                procedimentoConsulta = EnumProcedimento.VACINA;
+                                                    break;
+                                                case 3:
+                                                procedimentoConsulta = EnumProcedimento.PROCEDIMENTOCIRURGICO;
+                                                    break;                                            
+                                                default:
+                                                    break;
+                                            }
+                                            Consulta novaConsulta = new Consulta(pet, vet, cliente, dataConsulta,
+                                                    procedimentoConsulta);
+                                            Animal.historicoDeProntuarios.add(novaConsulta);
+                                            System.out.println(
+                                                    "Consulta cadastrada com sucesso: " + novaConsulta.toString());
+                                        } else
+                                            System.out.println(
+                                                    "Pet não cadastrado no sistema ou esta pessoa não é sua dona");
+                                    }
+
+                                } else
+                                    System.out.println("Pet não cadastrado no sistema ou esta pessoa não é sua dona");
+                            }
+                        }
+
+                    } else
+                        System.out.println("Pessoa não cadastrada no sistema");
+                }
             }
-            
-            Animal.historicoDeProntuarios.add(novaConsulta);
-            System.out.println("Consulta cadastrada com sucesso: " + novaConsulta.toString());
+
         }
     }
 
@@ -133,7 +162,6 @@ public class Consulta {
      */
 
     // •--==> GETTERS SETTERS
-    
 
     public Animal getAnimal() {
         return animal;
