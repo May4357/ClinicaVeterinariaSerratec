@@ -4,8 +4,4 @@ public enum EnumStatusConsulta {
     AGENDADA,
     FINALIZADA,
     CANCELADA
-
-
-
-
 }

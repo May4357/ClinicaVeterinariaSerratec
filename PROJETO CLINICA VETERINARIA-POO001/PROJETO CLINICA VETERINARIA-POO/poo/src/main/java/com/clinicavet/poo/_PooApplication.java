@@ -28,6 +28,7 @@ public class _PooApplication {
 			System.out.println("BOAS VINDAS A CLINICA VET");
 			System.out.println("Faça o seu Login para acessar os serviços da clínica:");
 
+			System.out.println("para testes use 't' e 't'");
 			System.out.println("Usuário: ");
 			String usuarioDigitado = usuarioLeia.nextLine();
 

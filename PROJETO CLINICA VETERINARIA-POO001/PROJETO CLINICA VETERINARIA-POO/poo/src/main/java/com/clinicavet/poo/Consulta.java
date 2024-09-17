@@ -62,41 +62,46 @@ public class Consulta {
                                             vet = v;
                                             System.out.println(v.getNomePessoa());
 
-                                            LocalDate dataConsulta; dataConsulta = LocalDate.now();
-                                            EnumStatusConsulta statusConsultaA; statusConsultaA = (EnumStatusConsulta.AGENDADA);
-                                            
+                                            LocalDate dataConsulta; //! DATA NÃO ESTÁ REGISTRANDO = NULL
+                                            dataConsulta = LocalDate.now();
+                                            EnumStatusConsulta statusConsultaA;
+                                            statusConsultaA = (EnumStatusConsulta.AGENDADA); //! STATUS NULL NÃO REGISTRA
+
                                             EnumProcedimento procedimentoConsulta;
-                                            System.out.println("Qual o tipo de procedimento será realizado na consulta: ");
+                                            System.out.println(
+                                                    "Qual o tipo de procedimento será realizado na consulta: ");
                                             System.out.println("[1] CONSULTA\n[2] VACINA\n[3] PROCEDIMENTOCIRURGICO;");
                                             int tipoProcedimento;
                                             procedimentoConsulta = EnumProcedimento.CONSULTA;
                                             tipoProcedimento = sc.nextInt();
                                             switch (tipoProcedimento) {
                                                 case 1:
-                                                procedimentoConsulta = EnumProcedimento.CONSULTA;
+                                                    procedimentoConsulta = EnumProcedimento.CONSULTA;
                                                     break;
                                                 case 2:
-                                                procedimentoConsulta = EnumProcedimento.VACINA;
+                                                    procedimentoConsulta = EnumProcedimento.VACINA;
                                                     break;
                                                 case 3:
-                                                procedimentoConsulta = EnumProcedimento.PROCEDIMENTOCIRURGICO;
-                                                    break;                                            
+                                                    procedimentoConsulta = EnumProcedimento.PROCEDIMENTOCIRURGICO;
+                                                    break;
                                                 default:
                                                     break;
                                             }
+                                            EnumProcedimento Procedimento = procedimentoConsulta;
                                             Consulta novaConsulta = new Consulta(pet, vet, cliente, dataConsulta,
                                                     procedimentoConsulta);
                                             Animal.historicoDeProntuarios.add(novaConsulta);
                                             System.out.println(
-                                                    "Consulta cadastrada com sucesso: \n"+
-                                                    "Data do Agendamento: "+novaConsulta.getDataConsulta()+
-                                                    "\nCliente: "+novaConsulta.donoPet.getNomePessoa()+
-                                                    "\nPet: "+novaConsulta.animal.getNomePet()+
-                                                    "\nVeterinário(a) Responsável: "+novaConsulta.getVeterinario().getNomePessoa()
-                                                    //+"Procedimento: "+ novaConsulta.procedimento.getEscolhaProcedimentoEnum()
-                                                    //+"Status: "+novaConsulta.statusConsulta.getStatusConsulta()
-                                                    );
-                                                } else
+                                                    "Consulta cadastrada com sucesso: \n" +
+                                                            "Data do Agendamento: " + novaConsulta.getDataConsulta() +
+                                                            "\nCliente: " + novaConsulta.donoPet.getNomePessoa() +
+                                                            "\nPet: " + novaConsulta.animal.getNomePet() +
+                                                            "\nVeterinário(a) Responsável: "
+                                                            + novaConsulta.getVeterinario().getNomePessoa()
+                                            // +"Procedimento: "+ novaConsulta.procedimento.getEscolhaProcedimentoEnum()
+                                            // +"Status: "+novaConsulta.statusConsulta.getStatusConsulta()
+                                            );
+                                        } else
                                             System.out.println(
                                                     "Pet não cadastrado no sistema ou esta pessoa não é sua dona");
                                     }
@@ -112,7 +117,8 @@ public class Consulta {
 
         }
     }
-    //metodo para saber 
+
+    // metodo para saber
     public static EnumStatusConsulta analisarStatusConsulta(Consulta consulta, MedicoVeterinario medico) {
         LocalDate dataHoje = LocalDate.now();
         if (consulta.getDataConsulta().isAfter(dataHoje)) {
@@ -126,6 +132,42 @@ public class Consulta {
             }
         }
     }
+
+    // CONSULTAR PRONTUÁRIOS DE TODOS OS PETS
+    public static void consultaProntuariosDeTodosPets() { // exibe lista de prontuarios de pets da clinica
+        System.out.println("Lista de Prontuários de Pets da clinica");
+        Animal historico;
+        Cliente cliente;
+        Cliente pet;
+        for (int i = 0; i < Animal.historicoDeProntuarios.size(); i++) {
+
+            System.out.println("--------------------------------");
+            System.out.println("Pet: "+Animal.historicoDeProntuarios.get(i).getAnimal().getNomePet());
+            System.out.println("Tutor(a): "+Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa());
+            System.out.println("Status Consulta: "+Animal.historicoDeProntuarios.get(i).getStatusConsulta());
+            System.out.println("Data da Consulta: "+Animal.historicoDeProntuarios.get(i).getDataConsulta());
+            System.out.println("Veterinario(a) responsável: "+Animal.historicoDeProntuarios.get(i).getVeterinario().getNomePessoa());
+            System.out.println("--------------------------------");
+
+        }
+    }
+    /*
+     * for(Consulta consulta : Animal.historicoDeProntuarios)
+     * for (Cliente cliente : Cliente.listaDeClientes){
+     * for (Animal pet : Cliente.listaDePets) {
+     * if(consulta.getAnimal().equals(pet) && pet.getDonoPet().equals(cliente)){
+     * System.out.println("ABC");
+     * c = consulta;
+     * System.out.println(pet.getNomePet());
+     * System.out.println(pet.getDonoPet().getNomePessoa());
+     * System.out.println(c.procedimento.getEscolhaProcedimentoEnum());
+     * System.out.println(c.dataConsulta);
+     * }
+     * }
+     * }
+     * System.out.println("DEF");
+     * }
+     */
 
     /*
      * //medico tal
