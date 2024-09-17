@@ -19,11 +19,8 @@ public class BancoDeDados {
         animal1.setGeneroPet(EnumGenero.FEMEA);
         Cliente.listaDePets.add(animal1);
 
-        Consulta consulta1 = new Consulta(animal1, medico1, cliente1);
-        System.out.println(consulta1.getDataConsulta());
-
-        System.out.println(Cliente.getListaDeClientes().contains(Cliente.class.equals("Johnny")));
-        System.out.println(Cliente.getNomePessoaBusca("Johnny"));
+        //Consulta consulta1 = new Consulta(animal1, medico1, cliente1);
+        //System.out.println(consulta1.getDataConsulta());
 
     }
 }

@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Consulta {
-    // •--==> ATRITUBTOS
-    // public static ArrayList<Consulta> historicoDeProntuarios = new
     // ArrayList<Consulta>();
     private Animal animal;
     private Cliente donoPet;
@@ -90,12 +88,18 @@ public class Consulta {
                                                     procedimentoConsulta);
                                             Animal.historicoDeProntuarios.add(novaConsulta);
                                             System.out.println(
-                                                    "Consulta cadastrada com sucesso: " + novaConsulta.toString());
-                                        } else
+                                                    "Consulta cadastrada com sucesso: \n"+
+                                                    "Data do Agendamento: "+novaConsulta.getDataConsulta()+
+                                                    "\nCliente: "+novaConsulta.donoPet.getNomePessoa()+
+                                                    "\nPet: "+novaConsulta.animal.getNomePet()+
+                                                    "\nVeterinário(a) Responsável: "+novaConsulta.getVeterinario().getNomePessoa()
+                                                    //+"Procedimento: "+ novaConsulta.procedimento.getEscolhaProcedimentoEnum()
+                                                    //+"Status: "+novaConsulta.statusConsulta.getStatusConsulta()
+                                                    );
+                                                } else
                                             System.out.println(
                                                     "Pet não cadastrado no sistema ou esta pessoa não é sua dona");
                                     }
-
                                 } else
                                     System.out.println("Pet não cadastrado no sistema ou esta pessoa não é sua dona");
                             }
@@ -106,6 +110,20 @@ public class Consulta {
                 }
             }
 
+        }
+    }
+    //metodo para saber 
+    public static EnumStatusConsulta analisarStatusConsulta(Consulta consulta, MedicoVeterinario medico) {
+        LocalDate dataHoje = LocalDate.now();
+        if (consulta.getDataConsulta().isAfter(dataHoje)) {
+            return EnumStatusConsulta.AGENDADA;
+        } else {
+            // Verifica se a consulta está na lista de consultas do médico
+            if (Animal.getHistoricoDeProntuarios().contains(consulta)) {
+                return EnumStatusConsulta.FINALIZADA;
+            } else {
+                return EnumStatusConsulta.CANCELADA;
+            }
         }
     }
 
