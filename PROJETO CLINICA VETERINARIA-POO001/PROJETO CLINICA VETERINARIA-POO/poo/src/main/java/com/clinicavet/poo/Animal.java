@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 public class Animal {//  dono 1 -> n pets
     public static ArrayList<Consulta> historicoDeProntuarios = new ArrayList<Consulta>();
-
     
     // •--==> ATRITUBTOS
     private String nomePet;
@@ -42,9 +41,7 @@ public class Animal {//  dono 1 -> n pets
     public static ArrayList<Consulta> visualizarHistoricoPet() {
         return historicoDeProntuarios;
     }
-    
-    
-    
+
     // •--==> GETTERS SETTERS
     public static ArrayList<Consulta> getHistoricoDeProntuarios() {
         return historicoDeProntuarios;
@@ -117,5 +114,4 @@ public class Animal {//  dono 1 -> n pets
     public void setGeneroPet(EnumGenero generoPet) {
         this.generoPet = generoPet;
     }
-
 }

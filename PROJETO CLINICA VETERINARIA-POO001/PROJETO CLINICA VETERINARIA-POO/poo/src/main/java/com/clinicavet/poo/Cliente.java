@@ -75,4 +75,6 @@ public static void consultaProntuarios() { // vai consultar os prontuarios daque
     // deve consultar os prontuários (historicos de atendimento) de TODOS os SEUS
     // pets.
 
+        }
+    }
 }

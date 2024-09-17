@@ -20,7 +20,9 @@ public class _PooApplication {
 
 		// •--==> MENU INICIAL DE LOGIN
 		while (contadorTentativas > 0) {
-			System.out.println("•---===CLINICA VET===---•");
+			System.out.println("\n============================");
+			System.out.println("||       CLINICA VET      ||");
+			System.out.println("============================");			
 			System.out.println("BOAS VINDAS A CLINICA VET");
 			System.out.println("Faça o seu Login para acessar os serviços da clínica:");
 

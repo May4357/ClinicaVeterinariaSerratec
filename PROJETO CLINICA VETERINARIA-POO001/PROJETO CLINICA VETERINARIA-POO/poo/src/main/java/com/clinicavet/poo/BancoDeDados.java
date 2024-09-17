@@ -21,6 +21,5 @@ public class BancoDeDados {
 
         Consulta consulta1 = new Consulta(animal1, medico1);
         System.out.println(consulta1.getDataConsulta());
-
     }
 }

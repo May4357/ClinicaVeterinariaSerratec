@@ -90,5 +90,4 @@ public class Pessoa implements Login {
         public void setTelefone(String telefone) {
             this.telefone = telefone;
         }
-        
     }
