@@ -15,6 +15,7 @@ public class ClinicaVeterinaria {
     
     // •--==> METODOS
     
+    
     // •--==> GETTERS SETTERS
     public String getCnpj() {
             return cnpj;
