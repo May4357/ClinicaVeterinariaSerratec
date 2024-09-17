@@ -18,6 +18,6 @@ public String get() {
     return descricao;
 }
 }
-EnumStatusConsulta.descricao
+
 
 
