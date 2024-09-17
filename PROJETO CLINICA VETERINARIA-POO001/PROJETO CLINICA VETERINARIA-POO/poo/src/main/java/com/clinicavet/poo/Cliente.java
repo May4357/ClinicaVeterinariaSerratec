@@ -29,6 +29,8 @@ public class Cliente extends Pessoa implements Login {
 
     }
 
+    
+
     // •--==> METODOS
     public static void consultaProntuarios() { // vai consultar os prontuarios daquele determinado animal
 
@@ -48,6 +50,15 @@ public class Cliente extends Pessoa implements Login {
 
             }
         }
+
+    }
+
+
+    public void cadastrarConsulta(Animal pet, MedicoVeterinario veterinario, LocalDate dataConsulta, EnumProcedimento descricao) {
+        Consulta novaConsulta = new Consulta(pet, veterinario, this, dataConsulta, descricao);
+        listaDeConsultas.add(novaConsulta);
+        System.out.println("Consulta cadastrada com sucesso: " + novaConsulta.toString());
+    }
     }
 
     public static void adicionarPet(Animal nomeAnimal) {
@@ -82,12 +93,10 @@ public class Cliente extends Pessoa implements Login {
         } else {
             nomeBusca = "Nome não consta na lista";
             return nomeBusca;
+            
         }
     }
     // login e senha
     // deve consultar os prontuários (historicos de atendimento) de TODOS os SEUS
     // pets.
 
-        }
-    }
-}
