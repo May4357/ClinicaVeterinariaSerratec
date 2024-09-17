@@ -15,8 +15,12 @@ public class _MenuCliente {
     // histórico de prontuários dos seus pets
 
     do{
-        System.out.println(" •---=== CLINICA VET ===---•");
-        System.out.println("[1]-VER AGENDAMENTO    [2]-HISTÓRICO DE PRONTUÁRIOS DO SEU PET");
+        System.out.println("\n============================");
+        System.out.println("||       CLINICA VET      ||");
+        System.out.println("============================");
+        System.out.println("[1] VER AGENDAMENTO" + 
+                           "[2] HISTÓRICO DE PRONTUÁRIOS DO SEU PET" + 
+                           "[0] SAIR");
         System.out.println("");
         opcaoCliente = sc.nextInt();
 
