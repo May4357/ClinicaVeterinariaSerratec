@@ -4,5 +4,6 @@ public enum EnumStatusConsulta {
     AGENDADA,
     EM_ANDAMENTO,
     FINALIZADA,
-    CANCELADA
+    CANCELADA;
+
 }
