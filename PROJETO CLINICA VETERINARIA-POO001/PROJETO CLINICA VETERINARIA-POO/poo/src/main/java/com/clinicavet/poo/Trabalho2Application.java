@@ -13,6 +13,16 @@ public class Trabalho2Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Trabalho2Application.class, args);
+
+		System.out.println("\n===================================================");
+		System.out.println("||   __  __                           __   ___   ||");
+		System.out.println("||  |  \\|   |\\  /|    \\      /||\\   ||  \\ |   |  ||");
+		System.out.println("||  |__/|__ | \\/ | ___ \\    / || \\  ||   \\|   |  ||");
+		System.out.println("||  |  \\|   |    |      \\  /  ||  \\ ||   /|   |  ||");
+		System.out.println("||  |__/|__ |    |       \\/   ||   \\||__/ |___|  ||");
+		System.out.println("||                                               ||");
+		System.out.println("===================================================");
+
 		
 		MedicoVeterinario med1 = new MedicoVeterinario("Johnny");
 			med1.setUsuario("a");
@@ -24,8 +34,9 @@ public class Trabalho2Application {
 
 		// •--==> MENU INICIAL DE LOGIN
 		while (contadorTentativas > 0) {
-			System.out.println("•---===CLINICA VET===---•");
-			System.out.println("BOAS VINDAS A CLINICA VET");
+			System.out.println("============================");
+			System.out.println("||       CLINICA VET      ||");
+			System.out.println("============================\n");			
 			System.out.println("Faça o seu Login para acessar os serviços da clínica:");
 
 			System.out.println("Usuário: ");
@@ -66,7 +77,6 @@ public class Trabalho2Application {
 					return true;
 				}
 			}
-
 		}
 	return false;
 	}

@@ -1,24 +1,84 @@
 package com.clinicavet.poo;
 
+import java.util.ArrayList;
 import java.time.LocalDate;
 
 public class Consulta {
     // •--==> ATRITUBTOS
-
+    //public static ArrayList<Consulta> historicoDeProntuarios = new ArrayList<Consulta>();
     private Animal animal;
-    private MedicoVeterinario veterinario;
+    private Cliente donoPet;
+    private MedicoVeterinario medicoVetResponsavel;
     private LocalDate dataConsulta;
     private EnumStatusConsulta statusConsulta;
     private EnumProcedimento procedimento;
 
     // •--==> CONSTRUTOR
-    public Consulta(Animal animal, MedicoVeterinario veterinario) {
-        this.animal = animal;
-        this.veterinario = veterinario;
-        this.dataConsulta = LocalDate.now();
+    public Consulta(Animal animal, MedicoVeterinario veterinario, Cliente donoPet) {
+        for (Cliente clienteLogin : Cliente.listaDeClientes) {
             
+        }
+        this.animal = animal;
+        this.medicoVetResponsavel = veterinario;
+        this.dataConsulta = LocalDate.now();
+    }
+
 
     // •--==> METODOS
+    public static void agendarConsulta(){
+        Cliente.listaDeClientes.contains("Johnny");
+
+
+
+        /*
+        //medico tal
+        //cliente tal // pet vem do cliente
+        for (Cliente clienteLogin : Cliente.listaDeClientes) {
+            
+            this.cliente = new ArrayList;
+            this.pet
+            this.medico
+        }
+    }
+
+    /*
+    public void agendarConsulta() {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.println("=== Agendar Consulta ===");
+            System.out.print("Nome do Cliente: ");
+            String nomeCliente = scanner.nextLine();
+            Cliente cliente = buscarCliente(nomeCliente);
+            if (cliente == null) {
+                System.out.println("Cliente não encontrado.");
+                return;
+            }
+
+private Cliente buscarCliente(String nome) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getNome().equalsIgnoreCase(nome)) {
+                return cliente;
+            }
+        }
+        return null;
+
+        System.out.print("Nome do Pet: ");
+            String nomePet = scanner.nextLine();
+            Pet pet = buscarPet(cliente, nomePet);
+            if (pet == null) {
+                System.out.println("Pet não encontrado.");
+                return;
+            }
+
+            private Pet buscarPet(Cliente cliente, String nomePet) {
+        for (Pet pet : cliente.getPets()) {
+            if (pet.getNome().equalsIgnoreCase(nomePet)) {
+                return pet;
+            }
+        }
+        return null;
+    }
+    } */
 
     // •--==> GETTERS SETTERS
     }
@@ -32,11 +92,11 @@ public class Consulta {
     }
 
     public MedicoVeterinario getVeterinario() {
-        return veterinario;
+        return medicoVetResponsavel;
     }
 
     public void setVeterinario(MedicoVeterinario veterinario) {
-        this.veterinario = veterinario;
+        this.medicoVetResponsavel = veterinario;
     }
 
     public LocalDate getDataConsulta() {
@@ -54,5 +114,4 @@ public class Consulta {
     public void setStatusConsulta(EnumStatusConsulta statusConsulta) {
         this.statusConsulta = statusConsulta;
     }
-
 }

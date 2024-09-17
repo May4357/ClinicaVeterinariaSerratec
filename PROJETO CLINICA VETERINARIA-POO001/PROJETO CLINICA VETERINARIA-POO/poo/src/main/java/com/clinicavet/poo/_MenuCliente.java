@@ -14,12 +14,31 @@ public class _MenuCliente {
     // agendar consulta
     // histórico de prontuários dos seus pets
 
+        do{
+            System.out.println("\n============================");
+            System.out.println("||       CLINICA VET      ||");
+            System.out.println("============================");
+            System.out.println("[1] VER AGENDAMENTO" + 
+                               "[2] HISTÓRICO DE PRONTUÁRIOS DO SEU PET" + 
+                               "[0] SAIR");
+            System.out.println("");
+            opcaoCliente = sc.nextInt();
     do{
         System.out.println("=================== | CLINICA VET |=======================");
         System.out.println(" ------------------PÁGINA DO CLIENTE-----------------");
         System.out.println("[1]-VER AGENDAMENTO    [2]-HISTÓRICO DE PRONTUÁRIOS DO SEU PET");
         opcaoCliente = sc.nextInt();
 
+            switch (opcaoCliente) {
+                case 1:
+                System.out.println("A sua consulta foi agendada para o dia :");
+                    break;
+                case 2:
+                    //historico
+                    break;
+                default:
+                    break;
+            }   
         switch (opcaoCliente) {
             case 1:
                
@@ -37,4 +56,5 @@ public class _MenuCliente {
         }
         }while(opcaoCliente!=0);
     }
+}
 }
