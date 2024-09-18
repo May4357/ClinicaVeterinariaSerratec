@@ -14,12 +14,14 @@ public class _MenuVet {
         //* TRATAMENTO DOS ERROS : FECHAR O SCANNER , INSERI UMA OPÇÃO PARA OPÇÕES INVÁLIDAS E CONTINUE PARA VOLTAR AO INÍCIO DO LOOP.
 
         int opcaoVet = -1;
+        final String ANSI_CYAN = "\u001B[36m"; // Ciano
+        final String ANSI_RESET = "\u001B[0m"; // Resetar cor
 
         try (Scanner sc = new Scanner(System.in)) {  //ESSE TRATAMENTO DO SCANNER , GARANTE QUE ELE SEJA FECHADO. 
             do {
-                System.out.println("\n============================");
-                System.out.println("||       CLINICA VET      ||");
-                System.out.println("============================");
+            System.out.println(ANSI_CYAN +"\n=============================");
+            System.out.println("|| CLINICA VET VIDA ANIMAL ||");
+            System.out.println("=============================" + ANSI_RESET);
 
                 System.out.println("[1] REGISTRAR UM ATENDIMENTO\n" +
                         "[2] CONSULTAR PRONTUÁRIOS DE TODOS OS PETS\n" +

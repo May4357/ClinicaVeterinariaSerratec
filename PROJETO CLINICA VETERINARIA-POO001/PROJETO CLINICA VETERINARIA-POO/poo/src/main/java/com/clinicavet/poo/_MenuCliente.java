@@ -3,36 +3,33 @@ package com.clinicavet.poo;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-        //* TRATAMENTO DOS ERROS : FECHAR O SCANNER , INSERI UMA OPÇÃO PARA OPÇÕES INVÁLIDAS E CONTINUE PARA VOLTAR AO INÍCIO DO LOOP.
-
 public class _MenuCliente {
-    public static void menuCliente(){
+    public static void menuCliente() {
 
         int opcaoCliente = -1;
+        final String ANSI_RESET = "\u001B[0m"; // Resetar cor
+        final String ANSI_CYAN = "\u001B[36m"; // Ciano
 
-        try (Scanner sc = new Scanner(System.in)) { //GARANTE  FECHAMENTO DO SCANNER;
+        try (Scanner sc = new Scanner(System.in)) { // Garante o fechamento do Scanner
 
             // Ambiente virtual de clientes da clinica vet
-            // boas vindas FULANO
-            // Menu:
-            // agendar consulta
-            // histórico de prontuários dos seus pets
+            System.out.println("Bem-vindo à Clínica Vet!");
 
             do {
-                System.out.println("\n============================");
-                System.out.println("||       CLINICA VET      ||");
-                System.out.println("============================");
-                System.out.println("[1] VER AGENDAMENTO\n" +
-                        "[2] HISTÓRICO DE PRONTUÁRIOS DO SEU PET\n" +
-                        "[0] SAIR");
-                System.out.println("");
+                System.out.println(ANSI_CYAN +"\n=============================");
+                System.out.println("|| CLINICA VET VIDA ANIMAL ||");
+                System.out.println("=============================" + ANSI_RESET);
+                System.out.println("[1] VER AGENDAMENTO");
+                System.out.println("[2] HISTÓRICO DE PRONTUÁRIOS DO SEU PET");
+                System.out.println("[0] SAIR");
+                System.out.print("Escolha uma opção: ");
 
                 try {
                     opcaoCliente = sc.nextInt();
                 } catch (InputMismatchException e) {
                     System.out.println("Entrada inválida! Por favor, insira um número.");
-                    sc.next(); // LIMPA O BUFFER.
-                    continue; // VOLTAR AO INÍCIO DO LOOP;
+                    sc.next(); // Limpa o buffer
+                    continue; // Volta ao início do loop
                 }
 
                 switch (opcaoCliente) {
@@ -54,4 +51,3 @@ public class _MenuCliente {
         }
     }
 }
-
