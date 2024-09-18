@@ -23,7 +23,10 @@ public class _PooApplication {
         final String ANSI_CYAN = "\u001B[36m"; // Ciano
         final String ANSI_GREEN = "\u001B[32m"; // Verde
         final String ANSI_RESET = "\u001B[0m"; // Resetar cor
-
+        System.out.print("Para entrar com o login de cliente:\n");
+        System.out.print("Usuários: 'tc', 'i', 'j' e 'a'.\n");
+        System.out.print("Senhas: 'tc', 'j', 'i' e 'a'.\n\n");
+        
         System.out.println(ANSI_CYAN + "\n===================================================");
         System.out.println("||   __  __                           __   ___   ||");
         System.out.println("||  |  \\|   |\\  /|    \\      /||\\   ||  \\ |   |  ||");
@@ -53,12 +56,9 @@ public class _PooApplication {
             System.out.println("BOAS VINDAS A CLINICA VET");
             System.out.println("Faça o seu Login para acessar os serviços da clínica:");
             
-			System.out.print("Para entrar com o login de cliente:\n");
-            System.out.print("Usuários: 'tc', 'i', 'j' e 'a'.\n");
-            System.out.print("Senhas: 'tc', 'j', 'i' e 'a'.\n");
 
-            System.out.println("para testes como Veterinario(a) use 't' e 't'");
-            System.out.println("para testes como Cliente use 'j' e 'j'\n");
+            //System.out.println("para testes como Veterinario(a) use 't' e 't'");
+            //System.out.println("para testes como Cliente use 'j' e 'j'\n");
             System.out.print("Usuário: ");
             String usuarioDigitado = usuarioLeia.nextLine();
 
