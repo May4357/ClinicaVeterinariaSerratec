@@ -22,6 +22,7 @@ public class _MenuVet {
             System.out.println("[1] REGISTRAR UM ATENDIMENTO\n" + 
                                "[2] CONSULTAR PRONTUÁRIOS DE TODOS OS PETS\n" + 
                                "[3] LISTA DE PETS NEGLIGENCIADOS\n" + 
+                               "[4] CADASTRAR NOVO CLIENTE\n" + 
                                "[0] SAIR");
             System.out.println("");
             opcaoVet = sc.nextInt();
@@ -36,6 +37,8 @@ public class _MenuVet {
                 case 3:
                 Consulta.listaDePetsNegligenciados(); // exibe a lista de pets que foram consultados há mais de 6 meses
                     break;
+                case 4:
+                Cliente.cadastrarCliente(); // cadastro de clientes 
                 default:
                     break;
             }

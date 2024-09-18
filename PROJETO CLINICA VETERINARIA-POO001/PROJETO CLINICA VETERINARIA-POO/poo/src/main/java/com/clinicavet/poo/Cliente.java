@@ -2,6 +2,7 @@ package com.clinicavet.poo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Cliente extends Pessoa implements Login {
 
@@ -29,6 +30,45 @@ public class Cliente extends Pessoa implements Login {
     }
 
     //•--==> MÉTODOS 
+    public static void cadastrarCliente() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("\n=============================================");
+        System.out.println("|           * CADASTRO DE CLIENTES *          |");
+        System.out.println("---------------------------------------------");
+        System.out.print("Nome Completo: ");
+        String nome = sc.nextLine();
+
+        System.out.print("CPF: ");
+        String cpf = sc.nextLine();
+
+        System.out.print("Telefone: ");
+        String telefone = sc.nextLine();
+
+        System.out.print("Email: ");
+        String email = sc.nextLine();
+
+        System.out.print("Usuario: ");
+        String usuario = sc.nextLine();
+
+        System.out.print("Senha: ");
+        String senha = sc.nextLine();
+
+        // Criação do objeto cliente
+        Cliente cliente = new Cliente(nome);
+        cliente.setCpf(cpf);
+        cliente.setTelefone(telefone);
+        cliente.setEmail(email);
+        cliente.setUsuario(usuario);
+        cliente.setSenha(senha);
+
+        listaDeClientes.add(cliente);
+
+        System.out.println("\n---------------------------------------------");
+        System.out.println("|       Cliente cadastrado com sucesso!       |");
+        System.out.println("=============================================\n");
+
+    } 
     public void consultarHistoricoPet(Animal animal) {                  //  CONSULTA HISTÓRICO DO PET 
         System.out.println("Consultando histórico de consultas para o pet: " + animal.getNomePet());
 
