@@ -1,6 +1,8 @@
 package com.clinicavet.poo;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -69,6 +71,74 @@ public class Cliente extends Pessoa implements Login {
         System.out.println("=============================================\n");
 
     } 
+
+    public static void cadastrarPets() {
+        Scanner sc = new Scanner(System.in);
+        Scanner scn = new Scanner(System.in);
+        System.out.println("\n=============================================");
+        System.out.println("|           * CADASTRO DE PETS *          |");
+        System.out.println("---------------------------------------------");
+        System.out.print("Nome Completo(Pet): ");
+        String nomePet = sc.nextLine();
+
+        System.out.print("Data de Nascimento(yyyy-mm-dd): ");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        System.out.print("Digite uma data no formato yyyy-MM-dd: ");
+        String input = sc.nextLine();
+        LocalDate dataNascimento;
+        try {
+            dataNascimento = LocalDate.parse(input, formatter);
+            System.out.println("Data inserida: " + dataNascimento);
+        } catch (DateTimeParseException e) {
+            System.out.println("Formato de data inválido. Use yyyy-MM-dd.");
+        }
+
+    /* System.out.print("Especie do Animal: ");
+        String especie = sc.nextLine();
+        EnumEspecieAnimal especieAnimal;
+        EnumEspecieAnimal especieEscolhida;
+        if (especieAnimal.getracaPorExtenso().equals(especie)){
+        especieEscolhida = especieAnimal;
+    }*/
+
+        System.out.print("Raca: ");
+        String raca = sc.nextLine();
+
+        System.out.print("Cor do Animal: ");
+        String cor = sc.nextLine();
+        
+        System.out.print("Genero do Animal: ");
+        String generoPet = sc.nextLine();
+
+        //Construtor
+        System.out.println("Lista de Clientes");
+        Cliente cliente;
+        for (int i = 0; i < Cliente.listaDeClientes.size(); i++) {
+            System.out.println("Tutor(a): " + Cliente.listaDeClientes.get(i).getNomePessoa());
+                }
+        
+
+        
+        int tutorEscolhido = scn.nextInt();
+        
+        // Criação do objeto Animal
+        Animal pet = new Animal();
+        pet.setNomePet(nomePet);
+        //pet.setDataNascimento(dataNascimento);
+        //pet.setEspecieAnimal(especieEscolhida);
+        pet.setRaca(raca);
+        //pet.setCor(cor);
+        pet.setDonoPet(Cliente.listaDeClientes.get(tutorEscolhido));
+       //pet.setGeneroPet(generoPet);
+
+        listaDePets.add(pet);
+
+        System.out.println("\n---------------------------------------------");
+        System.out.println("|       Pet cadastrado com sucesso!       |");
+        System.out.println("=============================================\n");
+
+    }
     public void consultarHistoricoPet(Animal animal) {                  //  CONSULTA HISTÓRICO DO PET 
         System.out.println("Consultando histórico de consultas para o pet: " + animal.getNomePet());
 

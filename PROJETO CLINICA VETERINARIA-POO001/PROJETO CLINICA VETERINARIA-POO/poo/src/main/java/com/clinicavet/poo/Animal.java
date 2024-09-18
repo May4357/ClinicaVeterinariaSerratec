@@ -30,6 +30,7 @@ public class Animal {//  dono 1 -> n pets
     }
     
     public Animal() {
+        
     }
     
     // •--==> METODOS

@@ -14,8 +14,24 @@ public class ClinicaVeterinaria {
     // •--==> CONSTRUTOR
     
     // •--==> METODOS
+    //listar todos os clientes
+    public static void listarclientes(){
+    System.out.println("Listar Clientes");
+        Cliente cliente;
+        for (int i = 0; i < Cliente.listaDeClientes.size(); i++) {
+            System.out.println("Tutor(a): " + Cliente.listaDeClientes.get(i).getNomePessoa());
+                }
+            }
     
-    
+    //listar todos os pets
+    public static void listarpets(){
+    System.out.println("Listar Pets");
+        Animal pet;
+        for (int i = 0; i < Cliente.listaDePets.size(); i++) {
+            System.out.println("Pet: " + Cliente.listaDePets.get(i).getNomePet());
+                }
+            }
+
     // •--==> GETTERS SETTERS
     public String getCnpj() {
             return cnpj;

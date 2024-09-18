@@ -23,6 +23,9 @@ public class _MenuVet {
                                "[2] CONSULTAR PRONTUÁRIOS DE TODOS OS PETS\n" + 
                                "[3] LISTA DE PETS NEGLIGENCIADOS\n" + 
                                "[4] CADASTRAR NOVO CLIENTE\n" + 
+                               "[5] CADASTRAR PET\n" + 
+                               "[6] LISTAR TODOS OS CLIENTES\n" + 
+                               "[7] LISTAR TODOS OS PETS\n" + 
                                "[0] SAIR");
             System.out.println("");
             opcaoVet = sc.nextInt();
@@ -39,6 +42,15 @@ public class _MenuVet {
                     break;
                 case 4:
                 Cliente.cadastrarCliente(); // cadastro de clientes 
+                    break;
+                case 5:
+                Cliente.cadastrarPets(); // cadastro de animal
+                    break;
+                case 6:
+                ClinicaVeterinaria.listarclientes(); //mostrar todos os clientes
+                    break;
+                case 7:
+                ClinicaVeterinaria.listarpets(); //mostrar todos os petso
                 default:
                     break;
             }
