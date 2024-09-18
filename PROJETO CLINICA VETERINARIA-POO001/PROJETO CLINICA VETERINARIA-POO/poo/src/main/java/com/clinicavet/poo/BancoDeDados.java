@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class BancoDeDados {
     public static void criadorPessoas() {
-        
+
         // DATAS
         LocalDate data1 = LocalDate.of(2024, 7, 5);
         LocalDate data2 = LocalDate.of(2024, 8, 5);
