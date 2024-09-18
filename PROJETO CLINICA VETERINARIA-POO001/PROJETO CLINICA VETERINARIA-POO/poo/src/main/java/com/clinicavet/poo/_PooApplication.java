@@ -19,9 +19,17 @@ public class _PooApplication {
 		// •--==> ATRITUBTOS
 		Scanner usuarioLeia = new Scanner(System.in);
 		Scanner senhaLeia = new Scanner(System.in);
-
+		System.out.println("\n===================================================");
+		System.out.println("||   __  __                           __   ___   ||");
+		System.out.println("||  |  \\|   |\\  /|    \\      /||\\   ||  \\ |   |  ||");
+		System.out.println("||  |__/|__ | \\/ | ___ \\    / || \\  ||   \\|   |  ||");
+		System.out.println("||  |  \\|   |    |      \\  /  ||  \\ ||   /|   |  ||");
+		System.out.println("||  |__/|__ |    |       \\/   ||   \\||__/ |___|  ||");
+		System.out.println("||                                               ||");
+		System.out.println("===================================================");
 		// •--==> MENU INICIAL DE LOGIN
 		while (contadorTentativas > 0) {
+			
 			System.out.println("\n============================");
 			System.out.println("||       CLINICA VET      ||");
 			System.out.println("============================");			

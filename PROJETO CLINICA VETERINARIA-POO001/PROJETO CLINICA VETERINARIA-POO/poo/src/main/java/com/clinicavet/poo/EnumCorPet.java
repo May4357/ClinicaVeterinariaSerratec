@@ -1,6 +1,7 @@
 package com.clinicavet.poo;
 
 public enum EnumCorPet {
+    OUTRO,
     FULVO,
     PRETO,
     BRANCO,
@@ -10,5 +11,6 @@ public enum EnumCorPet {
     CARAMELO,
     MALHADO,
     TRICOLOR,
+    LARANJA,
     BICOLOR
 }

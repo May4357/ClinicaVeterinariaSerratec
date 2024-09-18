@@ -1,6 +1,7 @@
 package com.clinicavet.poo;
 
 public enum EnumEspecieAnimal {
+    OUTRO("A definir"),
     CACHORRO("Cachorro"),
     GATO("Gato"),
     ROEDOR("Roedor"),

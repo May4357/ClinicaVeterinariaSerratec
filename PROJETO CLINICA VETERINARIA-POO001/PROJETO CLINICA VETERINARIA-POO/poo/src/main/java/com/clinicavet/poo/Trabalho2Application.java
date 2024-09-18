@@ -1,10 +1,10 @@
 package com.clinicavet.poo;
+/*
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Scanner;
 import java.time.LocalDate;
-
 @SpringBootApplication
 public class Trabalho2Application {
 	// •--==> ATRITUBTOS GLOBAIS
@@ -81,3 +81,4 @@ public class Trabalho2Application {
 	return false;
 	}
 }
+	*/

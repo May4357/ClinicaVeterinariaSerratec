@@ -127,20 +127,16 @@ public class Consulta {
                                                             "\nPet: " + novaConsulta.animal.getNomePet() +
                                                             "\nVeterinário(a) Responsável: "
                                                             + novaConsulta.getVeterinario().getNomePessoa()
-                                            +"Procedimento: "+ novaConsulta.procedimento.getEscolhaProcedimentoEnum()
-                                            +"Status: "+novaConsulta.statusConsulta.getDescricao()
+                                            +"\nProcedimento: "+ novaConsulta.procedimento.getEscolhaProcedimentoEnum()
+                                            +"\nStatus: "+novaConsulta.statusConsulta.getDescricao()
                                             );
-                                        } else
-                                            System.out.println(
-                                                    "Pet não cadastrado no sistema ou esta pessoa não é sua dona");
+                                        }
                                     }
-                                } else
-                                    System.out.println("Pet não cadastrado no sistema ou esta pessoa não é sua dona");
+                                }
                             }
                         }
 
-                    } else
-                        System.out.println("Pessoa não cadastrada no sistema");
+                    }
                 }
             }
 

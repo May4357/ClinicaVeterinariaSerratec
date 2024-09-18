@@ -28,7 +28,16 @@ public class ClinicaVeterinaria {
     System.out.println("Listar Pets");
         Animal pet;
         for (int i = 0; i < Cliente.listaDePets.size(); i++) {
+            System.out.println("------------------------");
+            System.out.println("Tutor(a): " + Cliente.listaDePets.get(i).getDonoPet().getNomePessoa());
+            System.out.println("------------------------");
             System.out.println("Pet: " + Cliente.listaDePets.get(i).getNomePet());
+            System.out.println("Especie: " + Cliente.listaDePets.get(i).getEspecieAnimal());
+            System.out.println("Raça: " + Cliente.listaDePets.get(i).getRaca());
+            System.out.println("Cor: " + Cliente.listaDePets.get(i).getCor());
+            System.out.println("Genero: " + Cliente.listaDePets.get(i).getGeneroPet());
+            System.out.println("Última consulta: " + Cliente.listaDePets.get(i).getDataUltimaConsulta());
+            System.out.println("------------------------\n");
                 }
             }
 
