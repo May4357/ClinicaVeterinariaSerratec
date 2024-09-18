@@ -17,9 +17,9 @@ public class BancoDeDados {
         medico1.setSenha("m");
         MedicoVeterinario.listaDeVeterinarios.add(medico1);
         
-        MedicoVeterinario medico2 = new MedicoVeterinario("Isabella");
-        medico2.setUsuario("i");
-        medico2.setSenha("i");
+        MedicoVeterinario medico2 = new MedicoVeterinario("Odair");
+        medico2.setUsuario("o");
+        medico2.setSenha("o");
         MedicoVeterinario.listaDeVeterinarios.add(medico2);
 
         //BANCO DE CLIENTES
@@ -38,7 +38,10 @@ public class BancoDeDados {
         cliente2.setSenha("a");
         Cliente.listaDeClientes.add(cliente2);
 
-
+        Cliente cliente3 = new Cliente("Isabella");
+        cliente3.setUsuario("i");
+        cliente3.setSenha("i");
+        Cliente.listaDeClientes.add(cliente3);
         
         //BANCO DE PETS
         Animal animal0 = new Animal();
@@ -65,13 +68,19 @@ public class BancoDeDados {
         animal3.setGeneroPet(EnumGenero.MACHO);
         Cliente.listaDePets.add(animal3);
 
-
+        Animal animal4 = new Animal();
+        animal4.setNomePet("Aurora");
+        animal4.setDonoPet(cliente3);
+        animal4.setGeneroPet(EnumGenero.FEMEA);
+        Cliente.listaDePets.add(animal4);
         
         //DATAS
         LocalDate data1 = LocalDate.of(2024, 7, 5);
         LocalDate data2 = LocalDate.of(2023, 8, 5);
         LocalDate data3 = LocalDate.of(2022, 9, 5);
-        //! datas não estão registrando 
+        LocalDate data4 = LocalDate.of(2024, 4, 5);
+        LocalDate data5 = LocalDate.of(2024, 3, 6);
+        LocalDate data6 = LocalDate.of(2024, 3, 15);
 
         //PROCEDIMENTOS
         EnumProcedimento consultaenum = EnumProcedimento.CONSULTA;
@@ -80,6 +89,7 @@ public class BancoDeDados {
 
         //STATUS CONSULTA
         EnumStatusConsulta statusConsulta = EnumStatusConsulta.AGENDADA;
+        EnumStatusConsulta statusConsulta1 = EnumStatusConsulta.FINALIZADA;
 
         //CONSULTAS
         Consulta consulta1 = new Consulta(animal0, medico0, cliente0, data1, cirurgiaenum, statusConsulta);
@@ -89,9 +99,9 @@ public class BancoDeDados {
         Consulta consulta3 = new Consulta(animal0, medico0, cliente0, data3, consultaenum, statusConsulta);
         Animal.historicoDeProntuarios.add(consulta3);
 
-        Consulta consulta4 = new Consulta(animal1, medico1, cliente1, data1, consultaenum, statusConsulta);
+        Consulta consulta4 = new Consulta(animal1, medico1, cliente1, data1, consultaenum, statusConsulta1);
         Animal.historicoDeProntuarios.add(consulta4);
-        Consulta consulta5 = new Consulta(animal1, medico1, cliente1, data1, vacinaenum, statusConsulta);
+        Consulta consulta5 = new Consulta(animal1, medico1, cliente1, data1, vacinaenum, statusConsulta1);
         Animal.historicoDeProntuarios.add(consulta5);
         Consulta consulta6 = new Consulta(animal1, medico1, cliente1, data2, vacinaenum, statusConsulta);
         Animal.historicoDeProntuarios.add(consulta6);
@@ -100,7 +110,7 @@ public class BancoDeDados {
         Animal.historicoDeProntuarios.add(consulta7);
         Consulta consulta8 = new Consulta(animal2, medico1, cliente1, data1, vacinaenum, statusConsulta);
         Animal.historicoDeProntuarios.add(consulta8);
-        Consulta consulta9 = new Consulta(animal2, medico1, cliente1, data2, vacinaenum, statusConsulta);
+        Consulta consulta9 = new Consulta(animal2, medico1, cliente1, data2, vacinaenum, statusConsulta1);
         Animal.historicoDeProntuarios.add(consulta9);
 
         Consulta consulta10 = new Consulta(animal3, medico2, cliente2, data1, consultaenum, statusConsulta);
@@ -110,6 +120,12 @@ public class BancoDeDados {
         Consulta consulta12 = new Consulta(animal3, medico1, cliente2, data2, vacinaenum, statusConsulta);
         Animal.historicoDeProntuarios.add(consulta12);
 
+        Consulta consulta13 = new Consulta(animal4, medico2, cliente3, data4, consultaenum, statusConsulta1);
+        Animal.historicoDeProntuarios.add(consulta13);
+        Consulta consulta14 = new Consulta(animal4, medico2, cliente3, data5, vacinaenum, statusConsulta1);
+        Animal.historicoDeProntuarios.add(consulta14);
+        Consulta consulta15 = new Consulta(animal4, medico2, cliente3, data6, vacinaenum, statusConsulta1);
+        Animal.historicoDeProntuarios.add(consulta15);
 
         //Consulta consulta1 = new Consulta(animal1, medico1, cliente1);
         //System.out.println(consulta1.getDataConsulta());

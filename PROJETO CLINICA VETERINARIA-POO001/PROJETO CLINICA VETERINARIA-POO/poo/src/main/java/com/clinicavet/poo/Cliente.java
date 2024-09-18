@@ -38,7 +38,7 @@ public class Cliente extends Pessoa implements Login {
             if (consulta.getAnimal().equals(animal)) {
                 System.out.println("Consulta em: " + consulta.getDataConsulta());
                 System.out.println("Veterinário: " + consulta.getVeterinario());
-               // System.out.println("Status da consulta " + consulta.(EnumStatusConsulta));
+                //System.out.println("Status da consulta " + consulta.(EnumStatusConsulta.AGENDADA));
                 System.out.println("----------------------------");
                 encontrouConsulta = true;
             }

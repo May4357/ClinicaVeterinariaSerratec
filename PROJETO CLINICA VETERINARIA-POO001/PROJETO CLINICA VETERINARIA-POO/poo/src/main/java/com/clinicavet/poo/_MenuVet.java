@@ -34,7 +34,7 @@ public class _MenuVet {
                 Consulta.consultaProntuariosDeTodosPets(); // exibe a lista de pets por dono e seus prontuarios
                     break;
                 case 3:
-
+                Consulta.listaDePetsNegligenciados(); // exibe a lista de pets que foram consultados há mais de 6 meses
                     break;
                 default:
                     break;

@@ -1,10 +1,12 @@
 package com.clinicavet.poo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 
 public class Consulta {
     // ArrayList<Consulta>();
@@ -182,6 +184,70 @@ public class Consulta {
         }
     }
 
+    public static void consultaProntuariosDePetsDoCliente() { // exibe lista de prontuarios de pets da clinica
+        System.out.println("Lista de Prontuários de Pets da clinica");
+        Animal historico;
+        Cliente cliente;
+        Cliente pet;
+        for (int i = 0; i < Animal.historicoDeProntuarios.size(); i++) {
+            if (Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa().equalsIgnoreCase(_PooApplication.usuarioLogado.getNomePessoa())){
+            System.out.println("--------------------------------");
+            System.out.println("Pet: " + Animal.historicoDeProntuarios.get(i).getAnimal().getNomePet());
+            System.out.println(
+                    "Tutor(a): " + Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa());
+            System.out.println("Status Consulta: " + Animal.historicoDeProntuarios.get(i).getStatusConsulta());
+            System.out.println("Procedimento Realizado: " + Animal.historicoDeProntuarios.get(i).getProcedimento());
+            System.out.println("Data da Consulta: " + Animal.historicoDeProntuarios.get(i).getDataConsulta());
+            System.out.println("Veterinario(a) responsável: "
+                    + Animal.historicoDeProntuarios.get(i).getVeterinario().getNomePessoa());
+                }
+        }
+    }
+    public static void consultaAgendamentosDePetsDoCliente() { // exibe lista de agendamentos de pets da clinica
+        System.out.println("Lista de Prontuários de Pets da clinica");
+        Animal historico;
+        Cliente cliente;
+        Cliente pet;
+        EnumStatusConsulta agendada = EnumStatusConsulta.AGENDADA;
+
+        for (int i = 0; i < Animal.historicoDeProntuarios.size(); i++) {
+            if (Animal.historicoDeProntuarios.get(i).getStatusConsulta().equals(agendada) && 
+            Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa().equalsIgnoreCase(_PooApplication.usuarioLogado.getNomePessoa())){
+            System.out.println("--------------------------------");
+            System.out.println("Pet: " + Animal.historicoDeProntuarios.get(i).getAnimal().getNomePet());
+            System.out.println(
+                    "Tutor(a): " + Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa());
+            System.out.println("Status Consulta: " + Animal.historicoDeProntuarios.get(i).getStatusConsulta());
+            System.out.println("Procedimento Agendado: " + Animal.historicoDeProntuarios.get(i).getProcedimento());
+            System.out.println("Data da Consulta: " + Animal.historicoDeProntuarios.get(i).getDataConsulta());
+            System.out.println("Veterinario(a) responsável: "
+                    + Animal.historicoDeProntuarios.get(i).getVeterinario().getNomePessoa());
+                }
+        }
+    }
+    
+    public static void listaDePetsNegligenciados() { // exibe lista de agendamentos de pets da clinica
+        System.out.println("Lista de Prontuários de Pets da clinica");
+        Animal historico;
+        Cliente cliente;
+        Cliente pet;
+        EnumStatusConsulta finalizada = EnumStatusConsulta.FINALIZADA;
+        LocalDate dataLimite = LocalDate.now().minus(6, ChronoUnit.MONTHS);
+        
+        for (int i = 0; i < Animal.historicoDeProntuarios.size(); i++) {
+            if (Animal.historicoDeProntuarios.get(i).getStatusConsulta().equals(finalizada) && Animal.historicoDeProntuarios.get(i).getDataConsulta().isBefore(dataLimite)){
+            System.out.println("--------------------------------");
+            System.out.println("Pet: " + Animal.historicoDeProntuarios.get(i).getAnimal().getNomePet());
+            System.out.println(
+                    "Tutor(a): " + Animal.historicoDeProntuarios.get(i).getAnimal().getDonoPet().getNomePessoa());
+            System.out.println("Status Consulta: " + Animal.historicoDeProntuarios.get(i).getStatusConsulta());
+            System.out.println("Procedimento Agendado: " + Animal.historicoDeProntuarios.get(i).getProcedimento());
+            System.out.println("Data da Consulta: " + Animal.historicoDeProntuarios.get(i).getDataConsulta());
+            System.out.println("Veterinario(a) responsável: "
+                    + Animal.historicoDeProntuarios.get(i).getVeterinario().getNomePessoa());
+                }
+        }
+    }
     /*
      * for(Consulta consulta : Animal.historicoDeProntuarios)
      * for (Cliente cliente : Cliente.listaDeClientes){

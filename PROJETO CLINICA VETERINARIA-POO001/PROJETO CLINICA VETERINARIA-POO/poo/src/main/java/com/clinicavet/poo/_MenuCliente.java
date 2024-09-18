@@ -6,6 +6,7 @@ public class _MenuCliente {
     public static void menuCliente(){
 
     int opcaoCliente;
+    
     Scanner sc = new Scanner(System.in);
 
     // Ambiente virtual de clientes da clinica vet
@@ -17,38 +18,23 @@ public class _MenuCliente {
         do{
             System.out.println("\n============================");
             System.out.println("||       CLINICA VET      ||");
-            System.out.println("============================");
-            System.out.println("[1] VER AGENDAMENTO" + 
-                               "[2] HISTÓRICO DE PRONTUÁRIOS DO SEU PET" + 
+            System.out.println("============================"); 
+            System.out.println("[1] VER AGENDAMENTO\n" + 
+                               "[2] HISTÓRICO DE PRONTUÁRIOS DO SEU PET\n" + 
                                "[0] SAIR");
             System.out.println("");
             opcaoCliente = sc.nextInt();
             switch (opcaoCliente) {
                 case 1:
-                System.out.println("A sua consulta foi agendada para o dia :");
-                Consulta.analisarStatusConsulta(null, null);
+                Consulta.consultaAgendamentosDePetsDoCliente();
                     break;
                 case 2:
-                    //historico
+                Consulta.consultaProntuariosDePetsDoCliente();
                     break;
                 default:
                     break;
             }   
-        switch (opcaoCliente) {
-            case 1:
-               
-                
-                break;
-            case 2:
-                //historico
-
-                break;
         
-
-
-            default:
-                break;
-        }
         }while(opcaoCliente!=0);
     }
 }
