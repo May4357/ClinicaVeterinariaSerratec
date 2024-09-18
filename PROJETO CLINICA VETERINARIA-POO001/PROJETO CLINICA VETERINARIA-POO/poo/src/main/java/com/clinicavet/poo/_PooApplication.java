@@ -52,8 +52,12 @@ public class _PooApplication {
             System.out.println("=============================" + ANSI_RESET);			
             System.out.println("BOAS VINDAS A CLINICA VET");
             System.out.println("Faça o seu Login para acessar os serviços da clínica:");
+            
+			System.out.print("Para entrar com o login de cliente:\n");
+            System.out.print("Usuários: 'tc', 'i', 'j' e 'a'.\n");
+            System.out.print("Senhas: 'tc', 'j', 'i' e 'a'.\n");
 
-            System.out.println("para testes use 't' e 't'");
+            System.out.println("para testes use 't' e 't'\n");
             System.out.print("Usuário: ");
             String usuarioDigitado = usuarioLeia.nextLine();
 
