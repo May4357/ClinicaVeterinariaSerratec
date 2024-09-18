@@ -57,7 +57,8 @@ public class _PooApplication {
             System.out.print("Usuários: 'tc', 'i', 'j' e 'a'.\n");
             System.out.print("Senhas: 'tc', 'j', 'i' e 'a'.\n");
 
-            System.out.println("para testes use 't' e 't'\n");
+            System.out.println("para testes como Veterinario(a) use 't' e 't'");
+            System.out.println("para testes como Cliente use 'j' e 'j'\n");
             System.out.print("Usuário: ");
             String usuarioDigitado = usuarioLeia.nextLine();
 
